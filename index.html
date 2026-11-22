@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Espérance de vie dans le monde</title>
+
+    <!--charger D3.js-->
+    <script src="https://d3js.org/d3.v4.js"></script>
+
+    <!--charger la biblio de couleurs-->
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+    <!--style pour éviter un fichier css en plus-->
+    <style>
+        html, body {
+            overflow-x: hidden;
+        }
+        svg {
+            max-width: 100%;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f5f5;
+            color: #333333;
+        }
+        h1 {
+            text-align: center;
+        }
+        .graphique {
+            margin-bottom: 30px;
+        }
+        .graphique h2 {
+            margin-bottom: 5px;
+        }
+        .graphique p {
+            color: #666666;
+            margin-top: 5px;
+        }
+        .zone_graphique {
+            width: 100%;
+            min-height: 400px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!--titre-->
+    <h1>Espérance de vie dans le monde</h1>
+    <p>
+        Explorez l'évolution de l'espérance de vie et comparez
+        les différences entre les pays et les populations.
+    </p>
+
+    <!-- GRAPHIQUE 1 -->
+    <div class="graphique">
+        <h2>1. Classement des pays</h2>
+        <p>
+            Quels pays présentent les espérances de vie les plus élevées
+            ou les plus faibles ?
+        </p>
+
+        <!--choisir indicateur -->
+        <p>Choisir l'indicateur :</p>
+        <label>
+            <input type="radio" name="indicateur" value="total" checked>
+            Espérance de vie totale
+        </label>
+
+        <label>
+            <input type="radio" name="indicateur" value="femmes">
+            Espérance de vie des femmes
+        </label>
+
+        <label>
+            <input type="radio" name="indicateur" value="hommes">
+            Espérance de vie des hommes
+        </label>
+        <br><br>
+
+        <!--choisir année -->
+        <label for="choix-annee">Choisir l'année :</label>
+        <select id="choix-annee"></select>
+        <br><br>
+
+        <!--affichage des 25 premiers-->
+        <label>
+            <input type="checkbox" id="top25">
+            N'afficher que les 25 premiers
+        </label>
+        <br><br>
+
+        <!--zone de dessin du graphique-->
+        <div id="graphique1" class="zone_graphique">
+            <svg id="graphique"></svg>
+        </div>
+    </div>
+
+    <!-- GRAPHIQUE 2 -->
+    <div class="graphique">
+        <h2>2. Evolution de l'espérance de vie</h2>
+        <p>
+            Comment l'espérance de vie a-t-elle évolué au fil du temps ?
+        </p>
+        <div id="graphique2" class="zone_graphique"></div>
+    </div>
+
+    <!-- GRAPHIQUE 3-->
+    <div class="graphique">
+        <h2>3. Comparaison avec la moyenne mondiale</h2>
+        <p>
+            Comment les pays se situent-ils par rapport à la moyenne mondiale ?
+        </p>
+        <div id="graphique3" class="zone_graphique"></div>
+    </div>
+
+    <!--charger le fichier javascript-->
+    <script src="graphiques.js"></script>
+
+</body>
+
+</html>
